@@ -83,14 +83,17 @@ if __name__ == "__main__":
     # 加载数据
     X_train, y_train, X_val, y_val = load_data()
 
+    # 获取输入数据维度
+    input_dimension = X_train.shape[1]
+
     # 创建模型
-    input_shape = (11,)    
+    input_shape = (input_dimension,)
     model = create_model(input_shape)
 
     # 训练模型
-    train_model(model, X_train, y_train, X_val, y_val)
+    train_model(model, X_train, y_train, X_val, y_val, 100, 3)
 
     # 使用模型进行预测
-    input_data = np.random.randn(1, 11)  # 输入数据示例
+    input_data = np.random.randn(1, input_dimension)  # 输入数据示例
     action = predict_action(model, input_data)
     print(f'Predicted Action: {action}')
