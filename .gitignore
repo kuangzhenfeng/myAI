@@ -1,1 +1,4 @@
 __pycache__
+dataset/*.csv
+model/*.keras
+config.py
